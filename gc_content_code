@@ -1,0 +1,30 @@
+#!pip install biopython
+from Bio import SeqIO
+seq_record = SeqIO.parse("rosalind_gc.txt", "fasta")
+def getting_seq(seq_record):
+  #print(dir(seq_record))
+  seq_lines = []
+  seq_ = []
+  header = []
+  gc_content = []
+  for r in seq_record:
+    header.append(r.id)
+    #print(header)
+    seq_lines.append(r.seq)
+    #print(seq_lines)
+  for x in seq_lines:
+    #print(x)
+    length = len(x)
+    c_count = x.count("C")
+    g_count = x.count("G")
+    total_gc_count = c_count + g_count
+    percent_gc = ((total_gc_count/length)*100)
+    #print(percent_gc)
+    gc_content.append(percent_gc)
+  #print(header)
+  #print(gc_content)
+  results = dict(zip(header,gc_content))
+  maximum = max(results, key=results.get)
+  return maximum, results[maximum]
+print(getting_seq(seq_record))
+
