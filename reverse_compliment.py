@@ -1,0 +1,38 @@
+"""In DNA strings, symbols 'A' and 'T' are complements of each other, as are 'C' and 'G'.
+The reverse complement of a DNA string s is the string sc formed by reversing the symbols of s, then taking the complement of each symbol
+(e.g., the reverse complement of "GTCA" is "TGAC")."""
+#Given: A DNA string s of length at most 1000 bp.
+#Return: The reverse complement sc of s.
+
+#print("This is the orginal DNA strain:")
+
+s = "AAAGTCACTAGGCTTGTATAACGCTATAAACGACCTGTCGCGTAATAACCCTAGATGTTGGATAGTTCCTCCACGCGGCGTCATAATCAGAGAAGTACCCGGTACAATCTTATGTACCACCTAACCGGGCCCCCTCCCAACGAATACGAGAAAACAGGTATCTGCGGGACTCCAGTCATTCTAAAGCACTTGACGCAGAATGAAATAACGGGATGACCCGCATAAGTTCTTGAGTTGGATCACACATCCGCGTTCCGAGACCCGTCAGATGGCCGCATCTAGTGCGCTCAGTGCAGGATTTGGCGATGCTGCGCATACCGTTTGTATGATATGAGAGCACCCGCTGTCAAGATCGTAGACAGGCAGCCGGTTTCAAGCAGTTGGGAAGGAAAAACTGTCGGACGTCACATATCGATTGGACTACTGGTTATCTCCCCTGCACGACGGATAAGCGACGCCCCCAAAATGGAGCCATGCCATGCCTGGCTGGAAATCCCAGAGGTCCGCGAACTCGATAACACAACAACTGTGTGGTGGTTATTCTTGTACACCGGCGTGTAGAGTGTCATACCCTGCACCAATGATCCCGACCCAAAACCGGTCGGGTCAAGGGTCGGGGTTCAAATGACTTACGAGGACACGCGATAATCTCCTATTAAACCAGCGTTTTCGGGTACTCCAGCAAATGGCCGCAAATAGTCTTTGGTGCAATTGTGCAAATGAGTTGCCACATTTCAGCCAGCCAGAACTCAGTAGATAAGTCGAACCACATGGTGTGACATACCCGGCATCCACAGTTAACGACTTGCTTGAGAAGCCTATCCGTACTCATTCGTGACCTATAATATACCAGTTCGGTAACGACTAGCTGGGTCGCTGTGGCAAACAATGACTGAAATACATTGACGCGGGAGGCTCCATTATCCAGGTGCTAAAACCAA"
+#print(s)
+
+list_char = split(s)
+#print(list_char)
+
+str_char = ''.join(list_char)
+
+#print(str_char)
+#print(str_char[::-1])
+
+print("This is the reversed of original strain:")
+reversed_str = str_char[::-1]
+print(reversed_str)
+
+def transcribing_DNA(reversed_str):
+  new_sequ = []
+  for char in reversed_str:
+    #print(char)
+    if char == "A":
+      new_sequ.append("T")
+    elif char == "T":
+      new_sequ.append("A")
+    elif char == "C":
+      new_sequ.append("G")
+    elif char == "G":
+      new_sequ.append("C")
+  return ''.join(new_sequ)
+print("This is the transcibed RNA strain:")
+print(transcribing_DNA(reversed_str))
